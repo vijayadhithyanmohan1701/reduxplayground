@@ -1,10 +1,12 @@
-import {UPDATE_MOVIES} from '../Actions/updateMovies';
+import {UPDATE_MOVIES} from '../Actions/actions';
+import initialState from '../index';
 
-const movieListReducer = (state = {name: 'Terminator 3'}, action) => {
+const movieListReducer = (state = {initialState}, action) => {
     switch(action.type){
         case UPDATE_MOVIES:
+            console.log(state.name);
             return {
-                name: action.payload.movieName
+                name: state.name + " and " + action.payload.movieName
             }
         default:
             return state;
